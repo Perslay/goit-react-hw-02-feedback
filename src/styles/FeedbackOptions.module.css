@@ -1,0 +1,12 @@
+.list {
+  margin: 1rem 0;
+}
+
+.listItem {
+  margin: 0.5rem 0;
+}
+
+.button {
+  padding: 0.3rem;
+  width: 100%;
+}
