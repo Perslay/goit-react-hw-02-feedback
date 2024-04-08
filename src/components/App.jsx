@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import css from '../styles/App.module.css';
 import { Statistics } from './Statistics';
 import { FeedbackOptions } from './FeedbackOptions';
+import { Open } from './Open';
 
 export class App extends Component {
   state = {
@@ -27,6 +28,8 @@ export class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
+
     return (
       <div className={css.appContainer}>
         <div>
@@ -38,13 +41,15 @@ export class App extends Component {
         </div>
         <div>
           <p className={css.paragraph}>Statistics</p>
-          <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
+          <Open feedbackGiven={good > 0 || neutral > 0 || bad > 0}>
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          </Open>
         </div>
       </div>
     );
