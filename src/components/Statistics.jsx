@@ -9,11 +9,26 @@ export const Statistics = ({
 }) => {
   return (
     <ul className={css.list}>
-      <li className={css.listItem}>Good: {good}</li>
-      <li className={css.listItem}>Neutral: {neutral}</li>
-      <li className={css.listItem}>Bad: {bad}</li>
-      <li className={css.listItem}>Total: {total}</li>
-      <li className={css.listItem}>Positive feedback: {positivePercentage}%</li>
+      <li className={css.listItem}>
+        <span>Good:</span>
+        <span>{good}</span>
+      </li>
+      <li className={css.listItem}>
+        <span>Neutral:</span>
+        <span>{neutral}</span>
+      </li>
+      <li className={css.listItem}>
+        <span>Bad:</span>
+        <span>{bad}</span>
+      </li>
+      <li className={css.listItem}>
+        <span>Total:</span>
+        <span>{total}</span>
+      </li>
+      <li className={css.listItem}>
+        <span>Positive feedback:</span>
+        <span>{positivePercentage}%</span>
+      </li>
     </ul>
   );
 };
