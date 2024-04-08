@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import css from '../styles/App.module.css';
 import { Statistics } from './Statistics';
 import { FeedbackOptions } from './FeedbackOptions';
-import { Open } from './Open';
+import { Notification } from './Notification';
 
 export class App extends Component {
   state = {
@@ -41,7 +41,10 @@ export class App extends Component {
         </div>
         <div>
           <p className={css.paragraph}>Statistics</p>
-          <Open feedbackGiven={good > 0 || neutral > 0 || bad > 0}>
+          <Notification
+            message="There is no feedback"
+            feedbackGiven={good > 0 || neutral > 0 || bad > 0}
+          >
             <Statistics
               good={good}
               neutral={neutral}
@@ -49,7 +52,7 @@ export class App extends Component {
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
-          </Open>
+          </Notification>
         </div>
       </div>
     );
